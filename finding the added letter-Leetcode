@@ -1,0 +1,25 @@
+//                finding the added letter
+
+
+import java.util.*;
+public class Nat{
+	public static void main(String args[]) {
+		Scanner Input=new Scanner(System.in);
+			String firstWord=Input.nextLine();
+			String secondWord=Input.nextLine();
+			int lenOfFirstWord=firstWord.length(),lenOfSecondWord=secondWord.length(),sum1=0,sum2=0;
+			
+			
+			//finding the difference of sum of ascii values of both words
+			//the difference is converted into char.
+			for(int i=0;i<lenOfSecondWord;i++) {
+				if(i<lenOfFirstWord)
+					sum1+=(int)firstWord.charAt(i);
+				sum2+=(int)secondWord.charAt(i);
+			}
+			
+			sum2=sum2-sum1;
+			System.out.print((char)sum2);
+			
+	}
+}
