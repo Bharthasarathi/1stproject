@@ -1,0 +1,23 @@
+//                         Counting number of '*' outside "||"
+package grow;
+import java.util.*;
+public class CountingNumberOfStars{
+	public static void main(String args[]) {
+		Scanner input=new Scanner(System.in);
+		int openOrClose=0,countOfStar=0;
+		String inputString=input.nextLine();
+		
+		/*checking the condition i'th time of '|' is even or odd
+		 * when '|' is even the occurrence of '*'is counted.
+		 */
+		for(int i=0;i<inputString.length();i++) {
+			if(inputString.charAt(i)=='|')
+				openOrClose++;
+			if(openOrClose%2==0&&inputString.charAt(i)=='*') 
+				countOfStar++;
+			}
+		
+	
+		System.out.println(countOfStar);
+	}
+}
