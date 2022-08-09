@@ -1,0 +1,30 @@
+//                       Climbing stairs(logic is based on fibonacci series)
+package grow;
+import java.util.*;
+public class Nat{
+	public static int ClimbStairs(int n) {
+		
+		
+		/*generating fibonacci series
+		 * logic-value of nth series is the sum of last two terms.
+		 * staring term=0,second term=1,3rd term=2nd+1st,4th term=3rd+2nd,.....goes on till nth term.
+		 */
+		int a=0,b=1,c=0;
+		for(int i=0;i<n;i++) {
+			c=a+b;
+			a=b;
+			b=c;
+		}
+		return c;
+	}
+	public static void main(String args[]) {
+		
+		Scanner Input=new Scanner(System.in);
+		int numberOfStairs=Input.nextInt();
+		
+		
+		System.out.println(ClimbStairs(numberOfStairs));
+		
+		
+	}
+}
