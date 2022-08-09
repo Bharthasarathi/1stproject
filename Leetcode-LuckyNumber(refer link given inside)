@@ -1,0 +1,34 @@
+//                                    Lucky_number(condition:- if the number and its occurrence are the same)
+//   (  https://leetcode.com/problems/find-lucky-integer-in-an-array/  )
+import java.util.*;
+public class Lucky_num_by_HashMap{
+	public static void main(String args[]) {
+		HashMap<Integer,Integer> H_map=new HashMap<>();
+		Scanner input=new Scanner(System.in);
+		
+		
+		//GETTING KEY VALUES FOR HASHMAP AND INCREMENTING REPEATED VALUES.
+		while(input.hasNextInt())
+		{
+			int key=input.nextInt();
+			if(H_map.containsKey(key))
+				H_map.put(key,H_map.get(key)+1);
+			else
+				H_map.put(key,1);
+		}
+		System.out.println(H_map);
+		
+		
+		//FINDING THE LUCKY NUMBER BY THE CONDITION WHETHER THE KEY VALUE AND THEIR INCREMENTED VALUES ARE EQUAL.
+		//THE LARGEST LUCKY NUMBER IS STORED IN THE VARIABLE "Big_lucky_num".
+		int Big_lucky_num=-1;	
+		for(int find_luc : H_map.keySet())
+			if(find_luc==H_map.get(find_luc)&&H_map.get(find_luc)>Big_lucky_num)
+				Big_lucky_num=H_map.get(find_luc);
+		
+		
+		System.out.print(Big_lucky_num);
+	
+			
+	}
+}
