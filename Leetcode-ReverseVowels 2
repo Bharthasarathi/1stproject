@@ -1,0 +1,40 @@
+//                 Reverse the vowels in the given word  
+
+
+import java.util.*;
+public class Nat{
+	public static void main(String args[]) {
+		Scanner Input=new Scanner(System.in);
+		String inputWord=Input.nextLine();
+		HashMap<Integer,Character> vowelsInWord=new HashMap<>();
+		int len=inputWord.length(),count=0;
+		char revdString[]=new char[len];
+		
+		
+		/*we are collecting the vowels in the ascending order in a HashMap
+		 * and meanwhile storing the rest of the letters are stored in a char array
+		 * index of the vowels are initialized to 0.
+		 */
+		for(int i=0;i<len;i++)
+			if(inputWord.charAt(i)=='a'||inputWord.charAt(i)=='A'||inputWord.charAt(i)=='e'||inputWord.charAt(i)=='E'||inputWord.charAt(i)=='i'||inputWord.charAt(i)=='I'||inputWord.charAt(i)=='o'||inputWord.charAt(i)=='O'||inputWord.charAt(i)=='u'||inputWord.charAt(i)=='U') {
+				vowelsInWord.put(count,inputWord.charAt(i));
+				count++;
+				revdString[i]=0;
+				
+			}
+			else
+				revdString[i]=inputWord.charAt(i);
+			
+
+		/* when 0 occurs the reverse order of Map are replaced.
+		 * later the char array is converted into string.
+		 */
+		for(int i=0;i<len;i++)
+			if(revdString[i]==0)
+				revdString[i]=vowelsInWord.get(--count);
+			
+			
+		String finalString=new String(revdString);
+		System.out.print(finalString);
+	}
+}
