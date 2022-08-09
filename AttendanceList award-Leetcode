@@ -1,0 +1,31 @@
+//                AttendanceList award
+
+
+import java.util.*;
+
+public class Nat{
+	
+	public static boolean AwardDecider(String attendanceList) {
+		boolean weCanGive=true;
+		int noOfAbsent=0;
+		
+		for(int i=0;i<attendanceList.length();i++) {
+			if(attendanceList.charAt(i)=='A'&&++noOfAbsent==2)
+				return false;
+			
+			if(i<attendanceList.length()-2&&attendanceList.charAt(i)=='L'&&attendanceList.charAt(i+1)=='L'&&attendanceList.charAt(i+2)=='L')
+				return false;
+		}
+		return true;
+		
+	}	
+	public static void main(String args[]) {
+		Scanner Input=new Scanner(System.in);
+		String attendance=Input.nextLine();
+		
+		
+	System.out.print(AwardDecider(attendance));
+		
+	
+	}
+}
