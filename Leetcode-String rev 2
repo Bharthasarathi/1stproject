@@ -1,0 +1,64 @@
+//                       Reverse a word according to the given number
+
+/*
+ *   Logic-to separate the word with k(given number).
+ *   To check whether the current segment is odd or even.
+ *   If odd the segment is reversed.
+ *   else the segment is printed as it is.
+ */
+package grow;
+import java.util.*;
+public class Nat{
+	public static void main(String args[]) {
+		
+		Scanner Input=new Scanner(System.in);
+		String givenWord=Input.nextLine();
+		int k=Input.nextInt(),len=givenWord.length(),count=0,shift=0;
+		char[] revWord=new char[len];
+		
+		/*variables used:-
+		 * 1. "givenWord" to store the given string.
+		 * 2. "k" to store the segment count to be reversed.
+		 * 3. "shift" to determine whether the current segment to be reversed.
+		 * 4. "revWord[]" for storing the reversed string.
+		 * 5. "count" to maintain the index number of the reversed char array.
+		 * 6. "len" to store the length of the givenWord.
+		 */
+		
+		//checking segment and reversing till the end of len/k
+		for(int i=1;i<=len/k;i++) {
+			if(shift%2==0)
+			for(int j=1;j<=k;j++) {
+				revWord[count]=givenWord.charAt(i*k-j);
+				count++;
+				
+			}
+			else
+				for(int j=0;j<k;j++) {
+				
+					revWord[count]=givenWord.charAt(count);
+					count++;
+				}
+			shift++;
+					
+		
+		}
+		
+		
+		//reversing the rest letters.
+		if(shift%2==0&&len-count!=0)
+			for(int i=count;i<len;i++)
+				revWord[i]=givenWord.charAt(count+len-i-1);
+		else
+			for(int i=count;i<len;i++)
+				revWord[i]=givenWord.charAt(i);
+		
+		
+		//output
+		for(int i=0;i<len;i++)
+			System.out.print(revWord[i]);
+
+
+
+	    }
+	}
