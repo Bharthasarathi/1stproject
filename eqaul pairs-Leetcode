@@ -1,0 +1,37 @@
+//                   Equal Pairs
+
+package par;
+import java.util.*;
+public class Pard{
+	public static void main(String args[]) {
+		Scanner Input=new Scanner(System.in);
+		int[] allNumbers=Arrays.stream(Input.nextLine().split(" ",-1)).mapToInt(Integer::parseInt).toArray();
+		boolean allHasPair=true;
+		
+		HashMap<Integer,Integer> CountManager=new HashMap<>();
+		
+		for(int i=0;i<allNumbers.length;i++)
+			if(CountManager.containsKey(allNumbers[i]))
+				CountManager.put(allNumbers[i],CountManager.get(allNumbers[i])+1);
+			else 
+				CountManager.put(allNumbers[i], 1);
+			
+				
+		Iterator<Integer> MapLooper= CountManager.keySet().iterator();
+		
+		while(MapLooper.hasNext()) {
+			Integer key=MapLooper.next();
+			if(CountManager.get(key)%2==1) {
+				allHasPair=false;
+				break;
+			}
+		}
+		System.out.print(allHasPair);
+		
+		
+	
+		
+		
+		
+}
+}
