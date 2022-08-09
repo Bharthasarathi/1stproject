@@ -1,0 +1,21 @@
+//            Longest Uncommon Subsequence
+
+// Condition- if both the strings or equals print -1,
+// if not print the largest word.
+import java.util.*;
+public class Pard{
+	public static void main(String args[]) {
+		Scanner Input=new Scanner(System.in);
+		String firstString=Input.nextLine();
+		String secondString=Input.nextLine();
+		
+		
+		
+		if(firstString.equals(secondString))
+			System.out.print(-1);
+		else
+			System.out.print(firstString.length()>secondString.length()?firstString.length():secondString.length());
+			
+			
+	}
+	
