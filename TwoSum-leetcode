@@ -1,0 +1,27 @@
+//                 Two sum
+// link=      https://leetcode.com/problems/two-sum/
+import java.util.*;
+public class Pard{
+	public static void main(String args[]) {
+		Scanner Input=new Scanner(System.in);
+		String allInputsNumbers=Input.nextLine();
+		String[] sepNumbers=allInputsNumbers.split(" ",-1);
+		int target=Input.nextInt();
+		int values[]=Arrays.stream(sepNumbers).mapToInt(Integer::parseInt).toArray();
+		HashMap<Integer,Integer> FinderMap=new HashMap<>();
+		
+		for(int i=0;i<values.length;i++) {
+			if(FinderMap.containsKey(target-values[i]))
+			{
+				System.out.println(i+" "+FinderMap.get(target-values[i]));
+				break;
+			}
+				FinderMap.put(values[i], i);
+			
+		}
+		
+				
+		
+						
+}
+}
