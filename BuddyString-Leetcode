@@ -1,0 +1,46 @@
+//          buddy string
+// link  https://leetcode.com/problems/buddy-strings/solution/
+
+package grow;
+import java.util.*;
+public class Nat{
+	public static void main(String args[]) {
+		Scanner Input=new Scanner(System.in);
+		String givenWord=Input.nextLine();
+		int k=Input.nextInt(),len=givenWord.length(),count=0,shift=0;
+		char[] revWord=new char[1000];
+		
+		for(int i=1;i<=len/k;i++) {
+			if(shift%2==0)
+			for(int j=1;j<=k;j++) {
+				revWord[count]=givenWord.charAt(i*k-j);
+				count++;
+				
+			}
+			else
+				for(int j=0;j<k;j++) {
+				
+					revWord[count]=givenWord.charAt(count);
+					count++;
+				}
+			shift++;
+					
+		
+		}
+	
+		if(shift%2==0)
+	for(int i=len%k;i>0;i--) {
+		revWord[count]=givenWord.charAt(len-i);
+		count++;
+	}
+		else {
+			for(int i=1;i<=len%k+1;i++)
+			revWord[count]=givenWord.charAt(count);
+			count++;
+		}
+		
+	
+	for(int i=0;i<len;i++)
+		System.out.print(revWord[i]);
+	//System.out.print(count);
+	
